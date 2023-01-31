@@ -29,6 +29,7 @@ public:
 	UFUNCTION(Server, Reliable, WithValidation)
 		void SpawnPlatform(TSubclassOf<class APingPongPlatform> PlatfromClass);
 	virtual void SetupInputComponent() override;
+
 protected:
 	UFUNCTION()
 		void MoveRight(float AxisValue);

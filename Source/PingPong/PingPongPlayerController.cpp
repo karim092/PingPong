@@ -3,6 +3,9 @@
 
 #include "PingPongPlayerController.h"
 #include "PingPongPlatform.h"
+#include "Kismet/GameplayStatics.h"
+#include "PingPongGameModeBase.h"
+
 
 APingPongPlayerController::APingPongPlayerController()
 {
@@ -37,8 +40,7 @@ void APingPongPlayerController::Server_PlatformMoveRight_Implementation(float Ax
 	{
 		if (AxisValue != 0)
 		{
-			UE_LOG(LogTemp, Warning,
-				TEXT("APingPongPlayerController::Server_PlatformMoveRight_Implementation"));
+			UE_LOG(LogTemp, Warning, TEXT("APingPongPlayerController::Server_PlatformMoveRight_Implementation"));
 		}
 		Platform->Server_MoveRight(AxisValue);
 	}
@@ -58,6 +60,7 @@ void APingPongPlayerController::Initialize_Implementation()
 	if (Platform)
 		Platform->Destroy();
 	SpawnPlatform(PlatformClass);
+
 }
 
 bool APingPongPlayerController::SpawnPlatform_Validate(TSubclassOf<class
